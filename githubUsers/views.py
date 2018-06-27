@@ -55,6 +55,8 @@ def fetch_and_store_all_users(request):
 def send_filtered_users(request):
     """
     Filters and returns the github users stored in database, depending upon the input parameters.
+    :param request: q, type, in, repos, location,created, followers,sort
+    :sample request: q=tom&type=user&in=email&repos=>40&sort=followers-asc&followers=>60location=iceland
     """
     try:
         logger.info("API " + whoami() + " has been hit !")
@@ -62,13 +64,12 @@ def send_filtered_users(request):
         field_in = (request.GET.get('in', '')).strip()
         repos = (request.GET.get('repos', '')).strip()
         location = (request.GET.get('location', '')).strip()
-        language = (request.GET.get('language', '')).strip()
         created = (request.GET.get('created', '')).strip()
         followers = (request.GET.get('followers', '')).strip()
         sort = (request.GET.get('sort', '')).strip()
         search_term = (request.GET.get('q','')).strip()
 
-        user_detail_queryset = githubData.create_filter_query(type,field_in,repos,location,language,created,followers,sort,search_term)
+        user_detail_queryset = githubData.create_filter_query(type,field_in,repos,location,created,followers,sort,search_term)
 
         if user_detail_queryset:
             serializer = UserDetailSerializer(user_detail_queryset, many=True)

@@ -71,7 +71,7 @@ def get_github_users():
     return True, list_of_user_data
 
 
-def create_filter_query(type,field_in,repos,location,language,created,followers,sort,search_term):
+def create_filter_query(type,field_in,repos,location,created,followers,sort,search_term):
     """
     Returns the filtered user data from the database depending upont he input paramters.
     """
