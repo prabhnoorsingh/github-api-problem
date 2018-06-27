@@ -11,7 +11,7 @@ from rest_framework_swagger.views import get_swagger_view
 schema_view = get_swagger_view(title='Github Users API')
 
 
-@api_view(['POST', 'PUT'])
+@api_view(['POST'])
 def fetch_and_store_all_users(request):
     """
     Fetches all users from Github and inserts them to the database. Incase, user_id is existing in database, it updates
