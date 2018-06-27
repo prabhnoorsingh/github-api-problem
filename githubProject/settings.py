@@ -11,10 +11,6 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 """
 
 import os
-from mongoengine import *
-
-# creating a global DB connection
-connect('devGithubDb')
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 CORS_ORIGIN_ALLOW_ALL = True
 
+USE_TZ = False
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +41,7 @@ INSTALLED_APPS = [
     'githubUsers',
     'rest_framework',
     'corsheaders',
+    'rest_framework_swagger',
 ]
 
 MIDDLEWARE = [

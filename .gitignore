@@ -1,0 +1,8 @@
+# ignore all files mentioned here
+*.pyc
+*.cpython-35.pyc
+**/*.cpython-35.pyc
+**/*.pyc
+githubProjectLogger.txt
+.idea/
+*cpython-35.pyc
